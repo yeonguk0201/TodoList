@@ -7,6 +7,7 @@ const TodoItem = ({ todoText, onDelete, onEdit }) => {
 
   const [isEditing, setIsEditing] = useState(false);
   const [editedText, setEditedText] = useState(todoText);
+  const [isComplete, setisComplete] = useState(false);
 
   const handleDelBtn = () => {
     onDelete();
@@ -24,6 +25,10 @@ const TodoItem = ({ todoText, onDelete, onEdit }) => {
   const handleCancelBtn = () => {
     setIsEditing(false);
     setEditedText(todoText);
+  };
+
+  const handleDoneBtn = () => {
+    setisComplete(!isComplete);
   };
 
   return (
@@ -50,10 +55,13 @@ const TodoItem = ({ todoText, onDelete, onEdit }) => {
             </EditBtnContainer>
           </form>
         ) : (
-          <TextBox>{todoText}</TextBox>
+          <TextBox className={isComplete ? 'completed' : ''}>{todoText}</TextBox>
         )}
       </Middle>
       <Bottom>
+        <Btn className="doneBtn" onClick={handleDoneBtn}>
+          완료
+        </Btn>
         <Btn className="editBtn" onClick={handleEditBtn}>
           수정
         </Btn>

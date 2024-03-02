@@ -3,11 +3,13 @@ import Arrow from './components/Arrow/Arrow';
 import BackgroundItem from './components/BackgroundItem/BackgroundItem';
 import TodoItem from './components/TodoItem/TodoItem';
 import TodolistContainer from './components/TodolistContainer/TodolistContainer';
+import AllList from './components/AllList/AllList';
 import './App.css';
 import { useState } from 'react';
 
 function App() {
   const [todos, setTodo] = useState([]);
+  const [showAllList, setShowAllList] = useState(false);
 
   const addTodo = (todoText) => {
     setTodo([...todos, { id: todos.length + 1, text: todoText }]);
@@ -21,9 +23,13 @@ function App() {
     setTodo(todos.map((todo) => (todo.id === id ? { ...todo, text: newText } : todo)));
   };
 
+  const handleShowBtn = () => {
+    setShowAllList(!showAllList);
+  };
+
   return (
     <div id="main">
-      <BackgroundItem></BackgroundItem>
+      <BackgroundItem onShow={handleShowBtn}></BackgroundItem>
       <AddTodoForm onAddTodo={addTodo}></AddTodoForm>
       <TodolistContainer>
         {todos.map((todo) => (
@@ -31,6 +37,7 @@ function App() {
         ))}
       </TodolistContainer>
       <Arrow></Arrow>
+      {showAllList && <AllList todo={todos} onDelete={deleteTodo} onShow={handleShowBtn}></AllList>}
     </div>
   );
 }

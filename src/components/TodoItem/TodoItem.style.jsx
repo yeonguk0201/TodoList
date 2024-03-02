@@ -27,9 +27,11 @@ export const LogoText = styled.p`
 `;
 
 export const DateText = styled.p`
-  font-family: Nanum Brush Script;
-  font-size: 27px;
-  padding: 40px 18px 0 0;
+  font-family: 'Gowun Dodum', sans-serif;
+  font-size: 18px;
+  margin: 40px 18px 0 0;
+  border-bottom: 2px solid #f42960;
+  align-self: self-end;
 `;
 
 export const Middle = styled.section`
@@ -44,8 +46,12 @@ export const Middle = styled.section`
 `;
 
 export const TextBox = styled.p`
-  font-family: Nanum Brush Script;
+  font-family: 'Noto Serif KR', serif;
   font-size: 26px;
+
+  &.completed {
+    text-decoration: line-through;
+  }
 `;
 
 export const Bottom = styled.section`
@@ -57,12 +63,12 @@ export const Bottom = styled.section`
 
 export const Btn = styled.button`
   border-radius: 10px;
-  font-family: Nanum Brush Script;
-  background: green;
+  font-family: 'Noto Serif KR', serif;
+  background: rgb(58 174 78);
   border: none;
   width: 48px;
-  height: 48px;
-  font-size: 24px;
+  height: 38px;
+  font-size: 15px;
   cursor: pointer;
   color: white;
 
@@ -74,20 +80,38 @@ export const Btn = styled.button`
   &.editBtn {
     margin-right: 15px;
   }
+
   &.delBtn {
-    background-color: red;
+    background-color: #da3535;
   }
+
+  &.doneBtn {
+    margin-right: 56px;
+    background-color: #35aada;
+  }
+
   &.edit {
+    border-radius: 8px;
     width: 35px;
     height: 25px;
-    font-size: 20px;
+    font-size: 10px;
   }
+
   &.save {
     margin: 8px 15px 0 0;
+
+    &:hover {
+      background-color: rgb(44 136 60);
+    }
   }
+
   &.cancel {
-    background-color: red;
+    background-color: #da3535;
     margin-top: 8px;
+
+    &:hover {
+      background-color: #b10d0d;
+    }
   }
 `;
 
@@ -99,7 +123,7 @@ export const EditInput = styled.input`
   border-bottom: solid #aaaaaa 1px;
   padding-bottom: 5px;
   text-align: center;
-  font-family: Nanum Brush Script;
+  font-family: 'Noto Serif KR', serif;
   font-size: 26px;
 
   &:focus {
