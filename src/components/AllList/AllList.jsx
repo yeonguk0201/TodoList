@@ -1,4 +1,6 @@
 import { Background, Container, ListBox, LogoText, ListContainer, ListItem, Btn, TodoText } from './AllList.style';
+import { IoTrashOutline } from 'react-icons/io5';
+import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
 
 const AllList = ({ todo, onDelete, onShow, toggleComplete }) => {
   return (
@@ -12,13 +14,13 @@ const AllList = ({ todo, onDelete, onShow, toggleComplete }) => {
           {todo.map((todos) => (
             <ListContainer key={todos.id}>
               <Btn className={todos.completed ? 'completed' : ''} onClick={() => toggleComplete(todos.id)}>
-                완료
+                <IoMdCheckmarkCircleOutline />
               </Btn>
               <ListItem>
                 <TodoText className={todos.completed ? 'completed' : ''}>{todos.text}</TodoText>
               </ListItem>
               <Btn className="del" onClick={() => onDelete(todos.id)}>
-                삭제
+                <IoTrashOutline />
               </Btn>
             </ListContainer>
           ))}

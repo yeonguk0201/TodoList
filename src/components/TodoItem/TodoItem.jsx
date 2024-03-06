@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { Container, Top, LogoText, DateText, Middle, TextBox, Bottom, Btn, EditInput, EditBtnContainer } from './TodoItem.style';
+import { IoTrashOutline } from 'react-icons/io5';
+import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
+import { HiOutlinePencil } from 'react-icons/hi2';
 
 const TodoItem = ({ todoText, onDelete, onEdit, isComplete, toggleComplete }) => {
   const today = new Date();
@@ -59,13 +62,13 @@ const TodoItem = ({ todoText, onDelete, onEdit, isComplete, toggleComplete }) =>
       </Middle>
       <Bottom>
         <Btn className="doneBtn" onClick={handleCompleted}>
-          완료
+          <IoMdCheckmarkCircleOutline />
         </Btn>
         <Btn className="editBtn" onClick={handleEditBtn}>
-          수정
+          <HiOutlinePencil />
         </Btn>
         <Btn className="delBtn" onClick={handleDelBtn}>
-          삭제
+          <IoTrashOutline />
         </Btn>
       </Bottom>
     </Container>

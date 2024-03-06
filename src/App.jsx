@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import AddTodoForm from './components/AddTodoForm/AddTodoForm';
 import Arrow from './components/Arrow/Arrow';
 import BackgroundItem from './components/BackgroundItem/BackgroundItem';
@@ -12,7 +13,7 @@ function App() {
   const [showAllList, setShowAllList] = useState(false);
 
   const addTodo = (todoText) => {
-    setTodo([...todos, { id: todos.length + 1, text: todoText, completed: false }]);
+    setTodo([...todos, { id: uuidv4(), text: todoText, completed: false }]);
   };
 
   const deleteTodo = (id) => {
@@ -48,7 +49,7 @@ function App() {
         ))}
       </TodolistContainer>
       <Arrow></Arrow>
-      {showAllList && <AllList isComplete={todos.completed} toggleComplete={toggleComplete} todo={todos} onDelete={deleteTodo} onShow={handleShowBtn}></AllList>}
+      {showAllList && <AllList toggleComplete={toggleComplete} todo={todos} onDelete={deleteTodo} onShow={handleShowBtn}></AllList>}
     </div>
   );
 }
