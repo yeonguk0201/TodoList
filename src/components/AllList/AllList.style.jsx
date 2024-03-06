@@ -63,6 +63,10 @@ export const Btn = styled.button`
     background-color: #74d474;
   }
 
+  &.completed {
+    background-color: #74d474;
+  }
+
   &.del {
     border: 2px solid #ff6a6a;
   &:hover {
@@ -84,4 +88,7 @@ export const Btn = styled.button`
 
 export const TodoText = styled.p`
   font-size: 20px;
+  &.completed {
+    text-decoration: line-through;
+  }
 `;

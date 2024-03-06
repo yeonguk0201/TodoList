@@ -1,6 +1,6 @@
 import { Background, Container, ListBox, LogoText, ListContainer, ListItem, Btn, TodoText } from './AllList.style';
 
-const AllList = ({ todo, onDelete, onShow }) => {
+const AllList = ({ todo, onDelete, onShow, toggleComplete }) => {
   return (
     <Background>
       <Container>
@@ -11,9 +11,11 @@ const AllList = ({ todo, onDelete, onShow }) => {
         <ListBox>
           {todo.map((todos) => (
             <ListContainer key={todos.id}>
-              <Btn>완료</Btn>
+              <Btn className={todos.completed ? 'completed' : ''} onClick={() => toggleComplete(todos.id)}>
+                완료
+              </Btn>
               <ListItem>
-                <TodoText>{todos.text}</TodoText>
+                <TodoText className={todos.completed ? 'completed' : ''}>{todos.text}</TodoText>
               </ListItem>
               <Btn className="del" onClick={() => onDelete(todos.id)}>
                 삭제
