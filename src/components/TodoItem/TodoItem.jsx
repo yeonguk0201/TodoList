@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { Container, Top, LogoText, DateText, Middle, TextBox, Bottom, Btn, EditInput, EditBtnContainer } from './TodoItem.style';
+import { IoTrashOutline } from 'react-icons/io5';
+import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
+import { HiOutlinePencil } from 'react-icons/hi2';
 
-const TodoItem = ({ todoText, onDelete, onEdit }) => {
+const TodoItem = ({ todoText, onDelete, onEdit, isComplete, toggleComplete }) => {
   const today = new Date();
   const formattedDate = `${today.getMonth() + 1}월 ${today.getDate()}일`;
 
   const [isEditing, setIsEditing] = useState(false);
   const [editedText, setEditedText] = useState(todoText);
-  const [isComplete, setisComplete] = useState(false);
 
   const handleDelBtn = () => {
     onDelete();
@@ -27,8 +29,8 @@ const TodoItem = ({ todoText, onDelete, onEdit }) => {
     setEditedText(todoText);
   };
 
-  const handleDoneBtn = () => {
-    setisComplete(!isComplete);
+  const handleCompleted = () => {
+    toggleComplete();
   };
 
   return (
@@ -59,14 +61,14 @@ const TodoItem = ({ todoText, onDelete, onEdit }) => {
         )}
       </Middle>
       <Bottom>
-        <Btn className="doneBtn" onClick={handleDoneBtn}>
-          완료
+        <Btn className="doneBtn" onClick={handleCompleted}>
+          <IoMdCheckmarkCircleOutline />
         </Btn>
         <Btn className="editBtn" onClick={handleEditBtn}>
-          수정
+          <HiOutlinePencil />
         </Btn>
         <Btn className="delBtn" onClick={handleDelBtn}>
-          삭제
+          <IoTrashOutline />
         </Btn>
       </Bottom>
     </Container>

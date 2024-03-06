@@ -58,15 +58,26 @@ export const Btn = styled.button`
   height: 40px;
   cursor: pointer;
   transition: 0.3s;
+  color: #74d474;
+  font-size: 20px;
+  line-height: 1px;
 
   &:hover {
     background-color: #74d474;
+    color: white;
+  }
+
+  &.completed {
+    background-color: #74d474;
+    color: white;
   }
 
   &.del {
     border: 2px solid #ff6a6a;
+    color: #ff6a6a;
   &:hover {
     background-color: #ff6a6a;
+    color: white;
   }
   }
 
@@ -75,8 +86,11 @@ export const Btn = styled.button`
     position: absolute;
     top: 20px;
     right: 20px;
+    color: #a5a5a5;
+    line-height: 0px;
   &:hover {
     background-color: #a5a5a5;
+    color: white;
   }
 }
   }
@@ -84,4 +98,7 @@ export const Btn = styled.button`
 
 export const TodoText = styled.p`
   font-size: 20px;
+  &.completed {
+    text-decoration: line-through;
+  }
 `;

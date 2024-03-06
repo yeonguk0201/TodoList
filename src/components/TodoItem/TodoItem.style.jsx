@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  background-color: #347b61;
+  background: url('/background.png') no-repeat center;
+  background-size: cover;
   border-radius: 15px;
   width: 250px;
   height: 350px;
@@ -24,14 +25,16 @@ export const LogoText = styled.p`
   font-size: 28px;
   padding: 18px 0 0 18px;
   font-weight: bold;
+  color: white;
 `;
 
 export const DateText = styled.p`
   font-family: 'Gowun Dodum', sans-serif;
   font-size: 18px;
   margin: 40px 18px 0 0;
-  border-bottom: 2px solid #f42960;
+  border-bottom: 2px solid #da3535;
   align-self: self-end;
+  color: white;
 `;
 
 export const Middle = styled.section`
@@ -48,6 +51,7 @@ export const Middle = styled.section`
 export const TextBox = styled.p`
   font-family: 'Noto Serif KR', serif;
   font-size: 26px;
+  color: white;
 
   &.completed {
     text-decoration: line-through;
@@ -68,7 +72,7 @@ export const Btn = styled.button`
   border: none;
   width: 48px;
   height: 38px;
-  font-size: 15px;
+  font-size: 17px;
   cursor: pointer;
   color: white;
 

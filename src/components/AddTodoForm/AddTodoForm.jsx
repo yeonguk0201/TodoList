@@ -31,7 +31,7 @@ const AddTodoForm = ({ onAddTodo }) => {
       {isCliked && (
         <FormBackground onClick={handleBtnClicked}>
           <WriteBox onSubmit={handleAddTodo} onClick={handleWriteBox}>
-            <TodoInput type="text" placeholder="" value={inputValue} onChange={handleInputChange} required></TodoInput>
+            <TodoInput type="text" placeholder="" value={inputValue} onChange={handleInputChange} autoFocus required></TodoInput>
             <TodoLabel>Todo</TodoLabel>
             <TodoBottomLine></TodoBottomLine>
           </WriteBox>
