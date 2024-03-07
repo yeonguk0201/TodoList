@@ -45,7 +45,7 @@ const TodoItem = ({ todoText, onDelete, onEdit, isComplete, toggleComplete }) =>
         {isEditing ? (
           <form>
             <div style={{ display: 'flex', width: '100%' }}>
-              <EditInput type="text" value={editedText} onSubmit={handleSaveBtn} onChange={(e) => setEditedText(e.target.value)} />
+              <EditInput type="text" value={editedText} onSubmit={handleSaveBtn} onChange={(e) => setEditedText(e.target.value)} autoFocus />
             </div>
             <EditBtnContainer>
               <Btn className="edit save" onClick={handleSaveBtn}>

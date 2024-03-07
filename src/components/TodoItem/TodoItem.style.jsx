@@ -90,6 +90,7 @@ export const Btn = styled.button`
   }
 
   &.doneBtn {
+    margin-left: 17px;
     margin-right: 56px;
     background-color: #35aada;
   }

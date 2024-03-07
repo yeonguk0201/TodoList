@@ -16,7 +16,37 @@ export const Container = styled.div`
   height: 800px;
   background-color: white;
   align-self: center;
+  overflow: auto;
   border-radius: 30px;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 38px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #74d474;
+    border-radius: 50px;
+    border: 15px solid transparent;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-button:vertical:start:decrement {
+    display: block;
+    height: 120px;
+  }
+
+  &::-webkit-scrollbar-button:vertical:end:decrement {
+    display: block;
+    width: 25px;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background-color: rgb(143 235 143);
+  }
 `;
 
 export const LogoText = styled.p`
