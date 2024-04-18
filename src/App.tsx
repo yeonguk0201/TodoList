@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import AddTodoForm from './components/AddTodoForm/AddTodoForm';
 import Arrow from './components/Arrow/Arrow';
@@ -6,29 +7,34 @@ import TodoItem from './components/TodoItem/TodoItem';
 import TodolistContainer from './components/TodolistContainer/TodolistContainer';
 import AllList from './components/AllList/AllList';
 import './App.css';
-import { useState } from 'react';
 
-function App() {
-  const [todos, setTodo] = useState([]);
-  const [showAllList, setShowAllList] = useState(false);
+interface Todo {
+  id: string;
+  text: string;
+  completed: boolean;
+}
 
-  const addTodo = (todoText) => {
+function App(): JSX.Element {
+  const [todos, setTodo] = useState<Todo[]>([]);
+  const [showAllList, setShowAllList] = useState<boolean>(false);
+
+  const addTodo = (todoText: string): void => {
     setTodo([...todos, { id: uuidv4(), text: todoText, completed: false }]);
   };
 
-  const deleteTodo = (id) => {
+  const deleteTodo = (id: string): void => {
     setTodo(todos.filter((todo) => todo.id !== id));
   };
 
-  const editTodo = (id, newText) => {
+  const editTodo = (id: string, newText: string): void => {
     setTodo(todos.map((todo) => (todo.id === id ? { ...todo, text: newText } : todo)));
   };
 
-  const toggleComplete = (id) => {
+  const toggleComplete = (id: string): void => {
     setTodo(todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo)));
   };
 
-  const handleShowBtn = () => {
+  const handleShowBtn = (): void => {
     setShowAllList(!showAllList);
   };
 
@@ -44,7 +50,7 @@ function App() {
             toggleComplete={() => toggleComplete(todo.id)}
             todoText={todo.text}
             onDelete={() => deleteTodo(todo.id)}
-            onEdit={(newText) => editTodo(todo.id, newText)}
+            onEdit={(newText: string) => editTodo(todo.id, newText)}
           />
         ))}
       </TodolistContainer>
