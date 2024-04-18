@@ -5,7 +5,7 @@ interface AddTodoFormProps {
   onAddTodo: (todoText: string) => void;
 }
 
-const AddTodoForm: React.FC<AddTodoFormProps> = ({ onAddTodo }) => {
+const AddTodoForm = ({ onAddTodo }: AddTodoFormProps) => {
   const [isCliked, setIsClicked] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>('');
 
