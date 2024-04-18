@@ -1,23 +1,27 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { TodoListBtn, FormBackground, WriteBox, TodoInput, TodoLabel, TodoBottomLine } from './AddTodoForm.styles';
 
-const AddTodoForm = ({ onAddTodo }) => {
-  const [isCliked, setIsClicked] = useState(false);
-  const [inputValue, setInputValue] = useState('');
+interface AddTodoFormProps {
+  onAddTodo: (todoText: string) => void;
+}
 
-  const handleBtnClicked = (e) => {
+const AddTodoForm: React.FC<AddTodoFormProps> = ({ onAddTodo }) => {
+  const [isCliked, setIsClicked] = useState<boolean>(false);
+  const [inputValue, setInputValue] = useState<string>('');
+
+  const handleBtnClicked = (): void => {
     setIsClicked(!isCliked);
   };
 
-  const handleWriteBox = (e) => {
+  const handleWriteBox = (e: React.FormEvent<HTMLFormElement>): void => {
     e.stopPropagation();
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setInputValue(e.target.value);
   };
 
-  const handleAddTodo = () => {
+  const handleAddTodo = (): void => {
     onAddTodo(inputValue);
     setIsClicked(!isCliked);
     setInputValue('');
