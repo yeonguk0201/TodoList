@@ -1,7 +1,11 @@
 import { Top, Bottom, Middle, MiddleItem, TopLeft, TopRight, BottomLeft, BottomRight, AllListBox, AllListBtn, AllListText } from './BackgroundItem.style';
 import { IoIosArrowForward } from 'react-icons/io';
 
-const BackgroundItem = ({ onShow }) => {
+interface BackgroundItemProps {
+  onShow: () => void;
+}
+
+const BackgroundItem = ({ onShow }: BackgroundItemProps) => {
   return (
     <>
       <Top>
@@ -20,7 +24,7 @@ const BackgroundItem = ({ onShow }) => {
           All of<br></br> the List
         </AllListText>
         <AllListBtn onClick={onShow}>
-          <IoIosArrowForward size={'22px'} />
+          <IoIosArrowForward size={22} />
         </AllListBtn>
       </AllListBox>
       <Bottom>
