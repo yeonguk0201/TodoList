@@ -4,11 +4,19 @@ import { IoTrashOutline } from 'react-icons/io5';
 import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
 import { HiOutlinePencil } from 'react-icons/hi2';
 
-const TodoItem = ({ todoText, onDelete, onEdit, isComplete, toggleComplete }) => {
+interface TodoItemProps {
+  todoText: string;
+  onDelete: () => void;
+  onEdit: (editedText: string) => void;
+  isComplete: boolean;
+  toggleComplete: () => void;
+}
+
+const TodoItem = ({ todoText, onDelete, onEdit, isComplete, toggleComplete }: TodoItemProps) => {
   const today = new Date();
   const formattedDate = `${today.getMonth() + 1}월 ${today.getDate()}일`;
 
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState<boolean>(false);
   const [editedText, setEditedText] = useState(todoText);
 
   const handleDelBtn = () => {
