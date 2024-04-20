@@ -9,7 +9,7 @@ import AllList from './components/AllList/AllList';
 import './App.css';
 
 interface Todo {
-  id: string;
+  id: string; // id는 uuid 써서
   text: string;
   completed: boolean;
 }
