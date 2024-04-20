@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Container } from './TodolistContainer.style';
 
-const TodolistContainer = ({ children }) => {
+interface TodolistContainerProps {
+  children: ReactNode;
+}
+
+const TodolistContainer = ({ children }: TodolistContainerProps) => {
   const childrenCount = React.Children.count(children);
   const windowWidth = window.innerWidth;
   const containerWidth = childrenCount * 274;
